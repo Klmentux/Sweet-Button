@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Submit Button</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: white;
+    }
+
+    #submitBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 15px 40px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 2;
+      transition: background-color 0.3s ease;
+    }
+
+    #submitBtn:hover {
+      background-color: #2980b9;
+    }
+
+    #overlay {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background-color: #3498db;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      transition: width 2s ease, height 2s ease;
+    }
+  </style>
+</head>
+<body>
+  <button id="submitBtn">Submit</button>
+  <div id="overlay"></div>
+
+  <script>
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const overlay = document.getElementById('overlay');
+
+      // Start expanding animation
+      overlay.style.width = '200vw';
+      overlay.style.height = '200vw';
+
+      // Wait for animation to finish before redirecting
+      setTimeout(() => {
+        window.location.href = 'https://example.com';  // Change this to your target page
+      }, 2000);  // Match the transition duration in CSS (2s)
+    });
+  </script>
+</body>
+</html>
